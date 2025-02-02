@@ -56,7 +56,10 @@ calculateAverage(numbersToAvg)
 //Assignment 4
 //Write a method that returns if a user has input a valid CPR number
 
-//CURRENT DOESNT MATCH ASSIGNMENT
+//CURRENT DOESNT MATCH DESCRIPTION CUS YOU DIDNT READ IT PROPERLY - RETURN HERE
+//CURRENT DOESNT MATCH DESCRIPTION CUS YOU DIDNT READ IT PROPERLY - RETURN HERE
+//CURRENT DOESNT MATCH DESCRIPTION CUS YOU DIDNT READ IT PROPERLY - RETURN HERE
+
     fun isCprValid(day: Byte, month: Byte, trail: String): Boolean {
         return when {
             // If day is less than 1 or exceeds 31, the function returns false
@@ -85,10 +88,66 @@ calculateAverage(numbersToAvg)
                 num % 3 == 0 && num % 5 == 0 -> println("FizzBuzz")
                 num % 3 == 0 -> println("Fizz")
                 num % 5 == 0 -> println("Buzz")
+                else -> println(num)
             }
         }
     }
 
+fizzer()
+
+
+
+
+
+//Assignment 6
+//Name abbreviator
+
+    fun abbreviateName(fullName: String): String {
+        // Fjern evt whitespace og opdel
+        val parts = fullName.trim().split("\\s+".toRegex())
+
+        // Hvis der kun er 1 ord, returner det som det er
+        if (parts.size <= 1) return fullName.trim()
+
+        // Tag initialer for alle navne undtagen det sidste ord
+        val initials = parts.dropLast(1).map { it.first().uppercase() + "." }
+
+        // Det sidste ord (efternavn)
+        val lastName = parts.last().replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
+
+        // Sammensæt initialer og efternavn med mellemrum
+        return initials.joinToString(" ") + " " + lastName
+    }
+
+    fun runIt() {
+        val inputName = "John Bon Jovi"
+        val abbreviated = abbreviateName(inputName)
+        println(abbreviated)  // Udskriver: J. B. Jovi
+    }
+
+runIt()
+
+
+
+
+
+//Assignment 7
+//Calcutelate grade based on score(Int)
+
+  fun calculateGrade(score:Int){
+      when{
+          score > 100 -> println("Not a Valid Score")
+          score >= 90 -> println("A")
+          score >= 80 -> println("B")
+          score >= 70 -> println("C")
+          score >= 60 -> println("D")
+          score <= 59 -> println("F")
+          score <= 0 -> println("Not a Valid Score")
+
+      }
+  }
+
+    calculateGrade(100)
 
 
 
@@ -96,19 +155,21 @@ calculateAverage(numbersToAvg)
 
 
 
+//Assignment 8
+//filter words in list by set parameter length
 
 
+    fun filterWordsByLength(words: List<String>, minLength: Int): List<String> {
+        return words.filter { it.length >= minLength }
+    }
 
+    fun runItFilter() {
+        val words = listOf("havetraktor", "asfalteksem", "kage", "masseødelæggelsesvåben", "ske", "sko", "ko", "marginaliseringsprocedure")
+        val filteredWords = filterWordsByLength(words, 5)
+        println(filteredWords) // Udskriver ord længere end 5 characters.
+    }
 
-
-
-
-
-
-
-
-
-
+    runItFilter()
 
 
 
